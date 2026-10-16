@@ -1,0 +1,56 @@
+# ═══════════════════════════════════════════════════════════════
+# Nexus-AI Platform — Git Ignore Rules
+# ═══════════════════════════════════════════════════════════════
+
+# ── Environment (CRITICAL — secrets!) ──
+.env
+.env.local
+.env.*.local
+.venv/
+venv/
+ENV/
+env/
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ── Test / Coverage ──
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# ── Vector Store (ChromaDB) ──
+.chroma/
+chroma_data/
+
+# ── Observability ──
+.langsmith/
+
+# ── IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Local debug / scratch ──
+structure.txt
+test_harness_full.py
+scratch/
+*.log
+.env
