@@ -14,8 +14,10 @@ from __future__ import annotations
 import logging
 from functools import lru_cache
 from typing import Annotated, Literal
+
 from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
+
 # Ei module er logger — warning/error ekhane jabe
 logger = logging.getLogger(__name__)
 
@@ -140,7 +142,7 @@ class Settings(BaseSettings):
         return v
 
     @model_validator(mode="after")
-    def _validate_provider_credentials(self) -> "Settings":
+    def _validate_provider_credentials(self) -> Settings:
         """Fail-fast: provider je API key chay, na thakle error."""
         required_map = {
             "deepseek": ("deepseek_api_key", "DEEPSEEK_API_KEY"),

@@ -9,7 +9,7 @@ Endpoints:
   GET  /compliance         — Phase 5 EU AI Act mapping
 """
 from __future__ import annotations
-from app.core.prompts import FALLBACK_RESPONSE
+
 import logging
 import sys
 import time
@@ -24,7 +24,8 @@ from starlette.middleware.base import BaseHTTPMiddleware
 
 from app.config import Settings, get_settings
 from app.core.mcp_client import MCPClient, init_mcp_client
-from app.core.streaming import format_sse, sse_headers, stream_verified_response
+from app.core.prompts import FALLBACK_RESPONSE
+from app.core.streaming import sse_headers, stream_verified_response
 from app.schemas.payload_schemas import (
     ChatRequest,
     ChatResponse,
@@ -33,7 +34,6 @@ from app.schemas.payload_schemas import (
     HealthResponse,
     ReadinessResponse,
 )
-
 
 # ═══════════════════════════════════════════════════════════════
 # LOGGING SETUP
@@ -87,7 +87,6 @@ async def lifespan(app: FastAPI):
     logger.info("=" * 60)
 
     # ── MCP client (persistent) ──
-    from app.core.mcp_client import init_mcp_client
     mcp_client = await init_mcp_client(settings)
     app.state.mcp_client = mcp_client
     app.state.settings = settings

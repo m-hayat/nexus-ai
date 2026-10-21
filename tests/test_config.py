@@ -18,7 +18,6 @@ from pydantic import ValidationError
 
 from app.config import Settings, get_settings
 
-
 # ═══════════════════════════════════════════════════════════════
 # FIXTURES
 # ═══════════════════════════════════════════════════════════════

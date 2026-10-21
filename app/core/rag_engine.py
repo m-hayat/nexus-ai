@@ -15,7 +15,6 @@ from pathlib import Path
 from typing import Any
 
 from langchain_core.documents import Document
-from langchain_core.retrievers import BaseRetriever
 
 # ── Text splitter ──
 try:

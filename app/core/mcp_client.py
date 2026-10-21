@@ -154,7 +154,7 @@ class MCPClient:
                 self._session.call_tool(tool_name, sanitized_args),
                 timeout=self.settings.mcp_call_timeout,
             )
-        except asyncio.TimeoutError:
+        except TimeoutError:
             logger.error("MCP call timeout: tool=%s", tool_name)
             return {
                 "status": "timeout",

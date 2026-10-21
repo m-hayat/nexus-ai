@@ -47,3 +47,23 @@ asyncio_mode = "strict"
 # --- এক্সপ্লিসিট প্যাকেজ ডিসকভারি (Windows flat-layout এরর ফিক্স) ---
 [tool.setuptools.packages.find]
 include = ["app*"]
+
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+# Pragmatic ruleset — style + bug prevention
+select = ["E", "F", "W", "I", "UP"]
+# Ignored rules with rationale:
+ignore = [
+  "E501",    # line too long (120 chars allowed)
+  "UP017",   # datetime.UTC (timezone.utc is fine)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests e import order + line length chai na
+"tests/*" = ["E402"]
+# Scripts e import-after-path-setup allow
+"scripts/*" = ["E402"]

@@ -42,7 +42,7 @@ def test_dataset_schema(dataset):
     """Prottek case e required fields ache."""
     required = {"id", "category", "query", "expected_routing", "expected_citations", "expected_answer_contains", "should_refuse"}
     valid_routings = {"policy", "database", "escalation", "chitchat"}
-    
+
     for case in dataset["test_cases"]:
         missing = required - set(case.keys())
         assert not missing, f"Case {case.get('id')} missing fields: {missing}"
@@ -54,7 +54,7 @@ def test_dataset_category_distribution(dataset):
     categories = [c["category"] for c in dataset["test_cases"]]
     from collections import Counter
     counts = Counter(categories)
-    
+
     # At least 5 policy, 5 escalation, 5 database
     assert counts.get("policy", 0) >= 5
     assert counts.get("escalation", 0) >= 5

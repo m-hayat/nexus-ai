@@ -10,7 +10,6 @@ import pytest
 
 from app.core.mcp_client import extract_player_id
 
-
 # ═══════════════════════════════════════════════════════════════
 # PLAYER ID EXTRACTION (no server needed)
 # ═══════════════════════════════════════════════════════════════

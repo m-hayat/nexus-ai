@@ -11,7 +11,6 @@ from typing import Annotated, Any, Literal, TypedDict
 
 from pydantic import BaseModel, Field, StringConstraints
 
-
 # ═══════════════════════════════════════════════════════════════
 # REQUEST MODELS
 # ═══════════════════════════════════════════════════════════════

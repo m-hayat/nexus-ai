@@ -15,7 +15,6 @@ import logging
 import time
 from typing import Literal
 
-from langchain_core.documents import Document
 from langgraph.graph import END, START, StateGraph
 
 from app.core.ai_harness import get_harness
