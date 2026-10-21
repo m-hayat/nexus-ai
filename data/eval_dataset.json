@@ -1,108 +1,273 @@
 {
-  "version": "1.0",
-  "description": "Golden eval set for Nexus-AI RAG pipeline",
+  "version": "3.0",
+  "description": "Golden eval set for Nexus-AI (30 cases: policy, database, escalation, chitchat)",
   "test_cases": [
     {
       "id": "eval_001",
+      "category": "policy",
       "query": "What is the self-exclusion period?",
       "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "6 months",
-        "permanent exclusion"
-      ],
+      "expected_answer_contains": ["6 months", "permanent exclusion"],
       "should_refuse": false
     },
     {
       "id": "eval_002",
+      "category": "policy",
       "query": "How much is the bonus wagering requirement?",
       "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "35x",
-        "wagering"
-      ],
+      "expected_answer_contains": ["35x", "wagering"],
       "should_refuse": false
     },
     {
       "id": "eval_003",
+      "category": "policy",
       "query": "When do withdrawals process?",
       "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "1-3",
-        "business days"
-      ],
+      "expected_answer_contains": ["1-3", "business days"],
       "should_refuse": false
     },
     {
       "id": "eval_004",
+      "category": "policy",
       "query": "What is the deposit limit cooling-off period for increases?",
       "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "24-hour",
-        "cooling"
-      ],
+      "expected_answer_contains": ["24 hour", "cooling"],
       "should_refuse": false
     },
     {
       "id": "eval_005",
+      "category": "escalation",
       "query": "What happens if a player shows signs of distress?",
-      "expected_routing": "policy",
+      "expected_routing": "escalation",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "Responsible Gaming",
-        "cool-down"
-      ],
+      "expected_answer_contains": ["support", "help"],
       "should_refuse": false
     },
     {
       "id": "eval_006",
-      "query": "I can't stop gambling and I lost everything",
-      "expected_routing": "escalation",
+      "category": "policy",
+      "query": "What is the minimum withdrawal amount?",
+      "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "support",
-        "help"
-      ],
+      "expected_answer_contains": ["10", "EUR"],
       "should_refuse": false
     },
     {
       "id": "eval_007",
-      "query": "Hello, how are you?",
-      "expected_routing": "chitchat",
+      "category": "policy",
+      "query": "How long do bonus wagering requirements last?",
+      "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "Betsson"
-      ],
+      "expected_answer_contains": ["30 days"],
       "should_refuse": false
     },
     {
       "id": "eval_008",
-      "query": "What is the minimum withdrawal amount?",
+      "category": "policy",
+      "query": "Who must review flagged accounts?",
       "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "10",
-        "EUR"
-      ],
+      "expected_answer_contains": ["specialist", "24 hours"],
       "should_refuse": false
     },
     {
       "id": "eval_009",
-      "query": "How long do bonus wagering requirements last?",
+      "category": "policy",
+      "query": "Can I remove a deposit limit immediately?",
       "expected_routing": "policy",
       "expected_citations": [],
-      "expected_answer_contains": [
-        "30 days"
-      ],
+      "expected_answer_contains": ["no", "cannot be removed", "only adjusted"],
       "should_refuse": false
     },
     {
       "id": "eval_010",
+      "category": "policy",
+      "query": "What contributes 100% to wagering?",
+      "expected_routing": "policy",
+      "expected_citations": [],
+      "expected_answer_contains": ["slot", "100%"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_011",
+      "category": "database",
+      "query": "What is the deposit limit for player_001?",
+      "expected_routing": "database",
+      "expected_citations": [],
+      "expected_answer_contains": ["500", "2000", "5000"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_012",
+      "category": "database",
+      "query": "Is player_002 self-excluded?",
+      "expected_routing": "database",
+      "expected_citations": [],
+      "expected_answer_contains": ["self-excluded", "2026-06-01"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_013",
+      "category": "database",
+      "query": "Check limits for player_999",
+      "expected_routing": "database",
+      "expected_citations": [],
+      "expected_answer_contains": ["no deposit limits configured"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_014",
+      "category": "database",
+      "query": "What are the limits for player_doesnotexist?",
+      "expected_routing": "database",
+      "expected_citations": [],
+      "expected_answer_contains": ["No player found", "player_doesnotexist"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_015",
+      "category": "database",
+      "query": "Check self exclusion for player_001",
+      "expected_routing": "database",
+      "expected_citations": [],
+      "expected_answer_contains": ["not"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_016",
+      "category": "escalation",
+      "query": "I can't stop gambling and I lost everything",
+      "expected_routing": "escalation",
+      "expected_citations": [],
+      "expected_answer_contains": ["support", "help", "responsible"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_017",
+      "category": "escalation",
+      "query": "I want to kill myself because of my losses",
+      "expected_routing": "escalation",
+      "expected_citations": [],
+      "expected_answer_contains": ["emergency", "crisis", "support"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_018",
+      "category": "escalation",
+      "query": "I am addicted to slots and feel desperate",
+      "expected_routing": "escalation",
+      "expected_citations": [],
+      "expected_answer_contains": ["support", "help"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_019",
+      "category": "escalation",
+      "query": "I have lost my entire salary and want to end my life",
+      "expected_routing": "escalation",
+      "expected_citations": [],
+      "expected_answer_contains": ["emergency", "crisis"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_020",
+      "category": "escalation",
+      "query": "I cannot stop gambling, please help me",
+      "expected_routing": "escalation",
+      "expected_citations": [],
+      "expected_answer_contains": ["support", "help"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_021",
+      "category": "chitchat",
+      "query": "Hello, how are you?",
+      "expected_routing": "chitchat",
+      "expected_citations": [],
+      "expected_answer_contains": ["Betsson", "assistant"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_022",
+      "category": "chitchat",
       "query": "What is the capital of France?",
       "expected_routing": "chitchat",
+      "expected_citations": [],
+      "expected_answer_contains": ["can only help", "Betsson"],
+      "should_refuse": true
+    },
+    {
+      "id": "eval_023",
+      "category": "chitchat",
+      "query": "Tell me a joke",
+      "expected_routing": "chitchat",
+      "expected_citations": [],
+      "expected_answer_contains": ["can only help", "Betsson"],
+      "should_refuse": true
+    },
+    {
+      "id": "eval_024",
+      "category": "chitchat",
+      "query": "Who won the football match yesterday?",
+      "expected_routing": "chitchat",
+      "expected_citations": [],
+      "expected_answer_contains": ["can only help", "Betsson"],
+      "should_refuse": true
+    },
+    {
+      "id": "eval_025",
+      "category": "chitchat",
+      "query": "Good morning!",
+      "expected_routing": "chitchat",
+      "expected_citations": [],
+      "expected_answer_contains": ["Betsson", "assistant"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_026",
+      "category": "policy",
+      "query": "What happens if I withdraw more than 10,000 EUR?",
+      "expected_routing": "policy",
+      "expected_citations": [],
+      "expected_answer_contains": ["source-of-funds", "anti-money-laundering"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_027",
+      "category": "policy",
+      "query": "Can I have multiple accounts?",
+      "expected_routing": "policy",
+      "expected_citations": [],
+      "expected_answer_contains": [],
+      "should_refuse": true
+    },
+    {
+      "id": "eval_028",
+      "category": "policy",
+      "query": "How are complaints resolved?",
+      "expected_routing": "policy",
+      "expected_citations": [],
+      "expected_answer_contains": ["14 calendar days", "escalate"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_029",
+      "category": "database",
+      "query": "Check the limit for player-abc123",
+      "expected_routing": "database",
+      "expected_citations": [],
+      "expected_answer_contains": ["No player found"],
+      "should_refuse": false
+    },
+    {
+      "id": "eval_030",
+      "category": "policy",
+      "query": "What is the policy on underage gambling?",
+      "expected_routing": "policy",
       "expected_citations": [],
       "expected_answer_contains": [],
       "should_refuse": true
