@@ -199,3 +199,26 @@ def get_settings() -> Settings:
     except Exception as exc:
         logger.critical("Settings load failed: %s", exc)
         raise
+
+
+import os
+
+def apply_langsmith_env(settings: Settings) -> None:
+    """
+    Ki: LangSmith tracing enable korar jonno environment variables set kore.
+    Kno: LangChain internally LANGCHAIN_* env vars pore.
+    How: main.py lifespan e call korbo (LangChain init er age).
+    """
+    if not settings.langsmith_tracing:
+        logger.info("LangSmith tracing disabled")
+        return
+    
+    if settings.langsmith_api_key is None:
+        logger.warning("LangSmith tracing enabled but API key missing — skipping")
+        return
+
+    os.environ["LANGCHAIN_TRACING_V2"] = "true"
+    os.environ["LANGCHAIN_API_KEY"] = settings.langsmith_api_key.get_secret_value()
+    os.environ["LANGCHAIN_PROJECT"] = settings.langsmith_project
+    os.environ["LANGCHAIN_ENDPOINT"] = settings.langsmith_endpoint
+    logger.info("LangSmith tracing enabled: project=%s", settings.langsmith_project)

@@ -77,6 +77,8 @@ async def lifespan(app: FastAPI):
     """
     settings = get_settings()
     setup_logging(settings)
+    from app.config import apply_langsmith_env
+    apply_langsmith_env(settings)
 
     logger.info("=" * 60)
     logger.info("Nexus-AI Platform starting")
@@ -353,6 +355,7 @@ async def chat_stream(payload: ChatRequest, request: Request):
     return EventSourceResponse(
         event_generator(),
         headers=sse_headers(),
+        ping=15,  # 15 sec por por heartbeat pathabe — connection alive rakhe
     )
 
 @app.get("/compliance", tags=["compliance"])
