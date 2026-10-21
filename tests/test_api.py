@@ -163,9 +163,9 @@ def test_compliance_endpoint(client):
     data = r.json()
     assert "framework" in data
     assert "articles" in data
-    assert "Article 13 (Transparency)" in data["articles"]
-    assert "Article 14 (Human Oversight)" in data["articles"]
-    assert "Article 15 (Accuracy & Robustness)" in data["articles"]
+    assert "Article 13 - Transparency" in data["articles"]
+    assert "Article 14 - Human Oversight" in data["articles"]
+    assert "Article 15 - Accuracy, Robustness, and Cybersecurity" in data["articles"]
 
 
 # ═══════════════════════════════════════════════════════════════
