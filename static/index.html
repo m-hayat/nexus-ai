@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus-AI Chat</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; height: 100vh; box-sizing: border-box; }
+        .chat-container { width: 100%; max-width: 800px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 80vh; overflow: hidden; }
+        .chat-header { background: #2c3e50; color: white; padding: 15px 20px; font-size: 1.2rem; font-weight: bold; }
+        .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .message { max-width: 80%; padding: 12px 16px; border-radius: 12px; line-height: 1.5; }
+        .user-message { align-self: flex-end; background: #3498db; color: white; border-bottom-right-radius: 4px; }
+        .bot-message { align-self: flex-start; background: #ecf0f1; color: #333; border-bottom-left-radius: 4px; }
+        .meta-info { font-size: 0.75rem; color: #7f8c8d; margin-top: 5px; display: block; }
+        .citation-box { background: #e8f4fd; border-left: 4px solid #3498db; padding: 8px; margin-top: 8px; font-size: 0.85rem; border-radius: 4px; }
+        .input-area { display: flex; padding: 15px; border-top: 1px solid #ddd; background: white; }
+        input[type="text"] { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 1rem; }
+        button { padding: 12px 20px; margin-left: 10px; background: #2ecc71; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold; }
+        button:disabled { background: #95a5a6; cursor: not-allowed; }
+        .spinner { display: none; margin-left: 10px; font-size: 0.9rem; color: #7f8c8d; align-self: center; }
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div class="chat-header">Nexus-AI Assistant (Betsson)</div>
+        <div class="chat-box" id="chatBox">
+            <div class="message bot-message">
+                Hello! I am the Nexus-AI assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Type your message here..." onkeypress="handleKeyPress(event)">
+            <span class="spinner" id="spinner">Thinking...</span>
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chatBox');
+        const userInput = document.getElementById('userInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const spinner = document.getElementById('spinner');
+        const sessionId = "sess-" + Math.random().toString(36).substring(7);
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Add user message to UI
+            appendMessage(message, 'user-message');
+            userInput.value = '';
+            
+            // Disable input while waiting
+            sendBtn.disabled = true;
+            userInput.disabled = true;
+            spinner.style.display = 'inline';
+
+            // Create bot message DOM structure
+            const botMsgDiv = document.createElement('div');
+            botMsgDiv.className = 'message bot-message';
+            
+            const textSpan = document.createElement('span');
+            textSpan.className = 'text-content';
+            botMsgDiv.appendChild(textSpan);
+
+            const metaSpan = document.createElement('span');
+            metaSpan.className = 'meta-info';
+            botMsgDiv.appendChild(metaSpan);
+
+            const citationContainer = document.createElement('div');
+            botMsgDiv.appendChild(citationContainer);
+
+            chatBox.appendChild(botMsgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+            
+            let finalAnswer = "";
+            let citations = [];
+
+            try {
+                const response = await fetch('/chat/stream', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: message,
+                        session_id: sessionId,
+                        stream: true
+                    })
+                });
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder('utf-8');
+                let buffer = "";
+                let currentEvent = "";
+
+                while (true) {
+                    const { value, done } = await reader.read();
+                    if (done) break;
+                    
+                    // Append new chunk to buffer
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    // Keep the last incomplete line in the buffer
+                    buffer = lines.pop();
+
+                    for (let line of lines) {
+                        line = line.replace('\r', ''); // Handle Windows \r\n
+                        
+                        if (line.startsWith('event: ')) {
+                            currentEvent = line.substring(7).trim();
+                        } else if (line.startsWith('data: ')) {
+                            const dataStr = line.substring(6); // Don't trim, spaces matter in tokens!
+                            
+                            if (currentEvent === 'token') {
+                                finalAnswer += dataStr;
+                                textSpan.textContent = finalAnswer; // Live update text
+                                chatBox.scrollTop = chatBox.scrollHeight;
+                            } else if (currentEvent === 'citation') {
+                                try { citations.push(JSON.parse(dataStr)); } catch(e){}
+                            } else if (currentEvent === 'validation') {
+                                try {
+                                    const valData = JSON.parse(dataStr);
+                                    if(valData.faithfulness_score !== null) {
+                                        metaSpan.innerText = `Faithfulness: ${valData.faithfulness_score} | Route: ${valData.routing}`;
+                                    }
+                                } catch(e){}
+                            }
+                        } else if (line.trim() === '') {
+                            // Blank line means end of an SSE event block
+                            if (currentEvent === 'done') currentEvent = "";
+                        }
+                    }
+                }
+
+                // Add citations at the end of the message
+                if (citations.length > 0) {
+                    citations.forEach(c => {
+                        const citeDiv = document.createElement('div');
+                        citeDiv.className = 'citation-box';
+                        citeDiv.innerHTML = `<strong>[Source ${c.source_id}]</strong> ${c.snippet.substring(0, 150)}...`;
+                        citationContainer.appendChild(citeDiv);
+                    });
+                }
+
+            } catch (error) {
+                textSpan.textContent = "Error: Could not connect to the server.";
+                console.error(error);
+            } finally {
+                sendBtn.disabled = false;
+                userInput.disabled = false;
+                userInput.focus();
+                spinner.style.display = 'none';
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        function appendMessage(text, className) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${className}`;
+            msgDiv.innerText = text;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
