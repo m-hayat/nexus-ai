@@ -1,21 +1,109 @@
 Betsson Group Responsible Gaming & Operating Policy
-Version: 2026.1
+Version: 2026.2
 Effective Date: 2026-01-01
+Last Updated: 2026-10-22
 
-1. Deposit Limits
-Players can set daily, weekly, or monthly deposit limits through their account settings at any time. Decreases take effect immediately. Increases require a 24-hour cooling-off period before taking effect. Limits are applied per currency and per payment method. Once a limit is set, it cannot be removed, only adjusted. Players may request a permanent limit change through customer support with identity verification.
+1. Account Registration
+New players must be at least 18 years of age (or the legal gambling age in their jurisdiction, whichever is higher). To open an account, players must provide: full legal name, date of birth, residential address, valid email, and phone number. All information must be accurate and match the player's official ID documents. Providing false information may result in account suspension, fund forfeiture, and permanent ban.
 
-2. Self-Exclusion Protocol
+2. Account Verification (KYC)
+Players must complete identity verification before their first withdrawal. Required documents: government-issued photo ID (passport, driver's license, national ID), proof of address (utility bill or bank statement dated within 3 months), and proof of payment method (bank statement or card photo). Verification typically takes 24-48 hours. Unverified accounts have a maximum withdrawal limit of 2,000 EUR until verification is complete.
+
+3. Account Security
+Players are responsible for keeping their login credentials confidential. Two-factor authentication (2FA) is available and strongly recommended. Betsson will never ask for a player's password via email, phone, or chat. If a player suspects unauthorized access, they must immediately contact support and change their password. Betsson is not liable for losses resulting from compromised credentials caused by player negligence.
+
+4. Account Closure
+Players may close their account at any time by contacting support or using the account settings. Upon closure, any remaining balance is returned to the verified payment method within 5 business days. Account closure is permanent unless the player explicitly requests reopening. Closed accounts cannot participate in promotions.
+
+5. Multiple Accounts
+Players are only permitted to hold ONE active account with Betsson Group. Creating multiple accounts is strictly prohibited and constitutes fraud. If duplicate accounts are detected: all accounts will be closed, all bonuses and winnings from duplicate accounts will be forfeited, and the player may be permanently banned. Players who wish to open a new account must first close their existing account and wait 30 days.
+
+6. Deposit Policy
+Deposits are processed instantly for most payment methods (credit card, debit card, e-wallet, bank transfer). The minimum deposit is 10 EUR. The maximum single deposit is 10,000 EUR unless otherwise agreed. Deposits made by third parties (someone other than the account holder) are not permitted and may be returned. All deposits must be wagered at least once before withdrawal.
+
+7. Deposit Methods
+Accepted deposit methods include: Visa, Mastercard, bank transfer, Skrill, Neteller, Paysafecard, Trustly, and cryptocurrency (BTC, ETH). Different methods may have different processing times and fees. Betsson does not charge deposit fees, but the player's bank or payment provider may. Cryptocurrency deposits require 1-3 network confirmations before being credited.
+
+8. Deposit Limits
+Players can set daily, weekly, or monthly deposit limits through their account settings at any time. Decreases take effect immediately. Increases require a 24-hour cooling-off period before taking effect. Limits are applied per currency and per payment method. Once a limit is set, it cannot be removed, only adjusted. Players may request a permanent limit change through customer support with identity verification. Limit reductions are irreversible for 7 days after being set.
+
+9. Withdrawal Policy
+Withdrawals are processed within 1-3 business days after identity verification. The minimum withdrawal amount is 10 EUR. Withdrawals must be returned to the same payment method used for deposits where possible. Large withdrawals (over 10,000 EUR) require additional source-of-funds verification as part of anti-money-laundering compliance. Withdrawals may be delayed if KYC is incomplete.
+
+10. Withdrawal Limits
+Standard withdrawal limits are 10,000 EUR per day and 50,000 EUR per month. VIP players may have higher limits. Withdrawals exceeding these limits require manual review and may take up to 5 business days. There is no minimum withdrawal limit for bank transfers, but e-wallets require at least 10 EUR.
+
+11. Payment Method Restrictions
+Withdrawals must be made to the same payment method used for the deposit, up to the amount deposited. Winnings above that amount can be withdrawn to any verified payment method in the player's name. Withdrawals to third-party accounts are not permitted. If a deposit method is no longer available, the player must contact support with proof of ownership.
+
+12. Bonus General Terms
+All bonuses are subject to these general terms: bonuses are non-transferable, non-withdrawable until wagering requirements are met, and may expire after 30 days of inactivity. Bonuses cannot be combined with other promotions unless explicitly stated. Betsson reserves the right to withdraw any bonus offer at any time. Abuse of bonus terms (e.g., multiple accounts, bonus hunting) will result in forfeiture of winnings.
+
+13. Welcome Bonus
+New players are eligible for a welcome bonus of 100% match up to 100 EUR on their first deposit. The minimum deposit to qualify is 10 EUR. The welcome bonus carries a 35x wagering requirement. Wagering must be completed within 30 days of activation. Slot games contribute 100% to wagering, table games 10%, live casino 5%. The welcome bonus is available only once per player, per household, per IP address, and per payment method.
+
+14. Reload Bonuses
+Existing players may receive reload bonuses on subsequent deposits. Each reload bonus has its own specific terms (wagering requirement, minimum deposit, eligible games). Reload bonuses are typically announced via email or in the promotions section. Reload bonuses expire after 7 days if not activated.
+
+15. Free Spins
+Free spins are awarded on specific slot games and are valid for a limited period (usually 7 days). Free spin winnings are credited as bonus funds with a 35x wagering requirement. The value per free spin and total number of spins are specified in each promotion. Free spins cannot be exchanged for cash.
+
+16. Wagering Requirements
+All promotional bonuses carry a standard 35x wagering requirement before bonus funds can be converted to real withdrawable cash. Wagering requirements must be met within 30 days of bonus activation. Different game categories contribute differently: slot games contribute 100%, table games contribute 10%, and live casino games contribute 5%. Bonuses are non-transferable and cannot be withdrawn directly. Bets placed with a bonus balance are counted towards wagering only after the bonus has been activated.
+
+17. Cashback and Loyalty
+Players enrolled in the Betsson Loyalty Program earn points for every wager. Points can be redeemed for bonus funds, free spins, or other rewards. VIP players receive enhanced cashback (up to 10% of net losses), dedicated account managers, and faster withdrawals. Cashback is credited weekly and has no wagering requirement. Loyalty points expire after 12 months of inactivity.
+
+18. Responsible Gaming - Self Exclusion
 A player requesting self-exclusion will have their account immediately locked for a minimum period of 6 months, up to permanent exclusion. Funds remaining in the balance will be refunded to the verified payment method within 5 business days. During self-exclusion, the player cannot open a new account, deposit, or place any bets. The exclusion applies across all Betsson Group brands. Players can request early removal only after the minimum 6-month period, and only after a mandatory responsible gaming review.
 
-3. Bonus Wagering Terms
-All promotional bonuses carry a standard 35x wagering requirement before bonus funds can be converted to real withdrawable cash. Wagering requirements must be met within 30 days of bonus activation. Different game categories contribute differently: slot games contribute 100%, table games contribute 10%, and live casino games contribute 5%. Bonuses are non-transferable and cannot be withdrawn directly.
+19. Responsible Gaming - Cool-Off Period
+A cool-off period is a shorter break of 24 hours, 7 days, 30 days, or 90 days. During cool-off, the player cannot deposit or place bets, but the account remains accessible for withdrawal. Cool-off periods can be set instantly in account settings and cannot be cancelled once activated. After the cool-off ends, the player may resume normal account activity without further intervention.
 
-4. Player Safety & Risk Escalation
+20. Responsible Gaming - Reality Checks
+Players can enable reality checks that display session duration, total wagered, and net win/loss at regular intervals (every 30, 60, or 120 minutes). Reality checks are mandatory for players who have been flagged for excessive play. The session is automatically terminated after 4 hours of continuous play for all players.
+
+21. Responsible Gaming - Time and Loss Limits
+Players can set daily, weekly, or monthly loss limits through their account settings. Loss limits apply to net losses (deposits minus withdrawals) and cannot be increased within 24 hours. Time limits restrict daily play to a maximum specified period. All limits are enforced across all Betsson products.
+
+22. Player Safety & Risk Escalation
 If automated triggers detect signs of loss-chasing, rapid deposit frequency, or player distress, the account must be flagged for Responsible Gaming review and temporary cool-down. Automated triggers include: three or more deposits within one hour, deposit amount increasing by more than 200% within a session, or self-reported distress signals in support chats. Flagged accounts are reviewed by a trained Responsible Gaming specialist within 24 hours. The specialist may apply temporary limits, request a cooling-off period, or escalate to permanent self-exclusion based on the review.
 
-5. Withdrawal Policy
-Withdrawals are processed within 1-3 business days after identity verification. The minimum withdrawal amount is 10 EUR (or currency equivalent). Withdrawals must be returned to the same payment method used for deposits where possible. Large withdrawals (over 10,000 EUR) require additional source-of-funds verification as part of anti-money-laundering compliance.
+23. Complaint Resolution
+Players may file complaints through the in-app support system or by email. Complaints are acknowledged within 24 hours and resolved within 14 calendar days. Unresolved complaints may be escalated to the relevant licensing authority. All complaints and their resolutions are logged for regulatory audit. Players may request the outcome in writing.
 
-6. Complaint Resolution
-Players may file complaints through the in-app support system or by email. Complaints are acknowledged within 24 hours and resolved within 14 calendar days. Unresolved complaints may be escalated to the relevant licensing authority. All complaints and their resolutions are logged for regulatory audit.
+24. Dispute Resolution
+Disputes related to bets or payouts must be submitted within 30 days of the disputed event. Betsson's decision is final unless the player escalates the matter to the licensing authority (e.g., MGA, SGA). Disputes involving suspected fraud or money laundering are handled by the compliance team and may take up to 90 days.
+
+25. Anti-Money Laundering (AML)
+Betsson complies with all applicable AML regulations. Players must provide source-of-funds documentation upon request (e.g., bank statements, pay stubs, tax returns). Suspicious transactions are reported to the relevant authorities. Betsson reserves the right to freeze accounts and suspend payouts during AML investigations. Players found in violation may be permanently banned and reported to law enforcement.
+
+26. Source of Funds Verification
+Players depositing more than 2,000 EUR in a single transaction or 5,000 EUR cumulatively in 30 days must provide source-of-funds documentation. Required documents may include: bank statements (3 months), pay stubs, tax returns, or proof of sale for large assets. Failure to provide documentation within 14 days may result in account suspension.
+
+27. Data Protection and Privacy
+Betsson processes personal data in accordance with GDPR. Player data is used for account management, fraud prevention, AML compliance, and marketing (with consent). Players have the right to access, correct, or delete their data by submitting a request to privacy@betsson.com. Data is retained for at least 5 years after account closure for regulatory purposes. Betsson does not sell player data to third parties.
+
+28. Age Verification
+Players must be at least 18 years old (or older if required by local law). Betsson performs age verification checks using third-party databases and ID documents. If a player is found to be underage: their account will be closed, all winnings will be forfeited, and deposits will be refunded. Parents or guardians who discover underage gambling should contact support immediately.
+
+29. Fraud and Cheating
+Fraud, cheating, collusion, or use of prohibited software (bots, AI, etc.) is strictly prohibited. Detected fraud results in immediate account closure, forfeiture of all balances, and possible legal action. Betsson collaborates with other operators to share fraud intelligence. Players suspected of match-fixing or syndicate betting will be reported to the relevant sports governing bodies.
+
+30. Restricted Territories
+Betsson does not accept players from certain jurisdictions, including the United States, United Kingdom (for some products), and any country where online gambling is illegal. Attempting to access Betsson from a restricted territory via VPN or other means is a violation of these terms. Accounts opened from restricted territories will be closed and any remaining balance forfeited.
+
+31. Sports Betting Rules
+Bets are settled according to official match results as published by the relevant governing body. If a match is cancelled or postponed beyond 48 hours, bets are voided and stakes returned. Live bets placed after the outcome is known are voided. Each-way bets, handicaps, and other bet types follow the specific rules stated in the bet slip at time of placement.
+
+32. Bet Cancellation and Voiding
+Betsson reserves the right to void any bet due to obvious errors (e.g., wrong odds, wrong team, technical glitches). Players will be notified within 24 hours of such voids, and stakes will be refunded. Palpable error bets (e.g., odds displayed at 100x the correct value) are always voided.
+
+33. Casino Game Rules
+All casino games use a certified Random Number Generator (RNG) audited by independent third parties. Game rules (payout, RTP, volatility) are visible in each game's info section. In case of a technical malfunction, the affected round is voided and stakes refunded. Bonus buy features are permitted only in jurisdictions where legally allowed.
+
+34. Live Casino Rules
+Live casino games are streamed from certified studios. Players must not use VPN or proxy services to access live casino games. If the video feed is interrupted during a live bet, the bet stands if the outcome was determined before the interruption. Chat abuse in live dealer rooms is prohibited and may result in a ban.
+
+35. License and Regulation
+Betsson Group operates under licenses issued by the Malta Gaming Authority (MGA), the Swedish Gambling Authority (SGA), and other regional regulators. All games and operations are subject to regular audits. Players can request their account statement at any time. The MGA provides independent dispute resolution for players who have exhausted Betsson's internal complaint process.

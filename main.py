@@ -9,7 +9,7 @@ Endpoints:
   GET  /compliance         — Phase 5 EU AI Act mapping
 """
 from __future__ import annotations
-
+from fastapi.staticfiles import StaticFiles
 import logging
 import sys
 import time
@@ -437,3 +437,11 @@ async def compliance():
         },
         "status": "Production-ready (Phase 5 complete)",
     }
+# ── Serve Static UI ──
+# Ei line ta add korle apnar HTML UI direct http://localhost:8000/ e chalu hobe
+app.mount("/ui", StaticFiles(directory="static", html=True), name="static")
+
+@app.get("/", include_in_schema=False)
+async def root():
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/ui/")
